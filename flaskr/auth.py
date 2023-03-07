@@ -1,4 +1,4 @@
-import functools
+import functools, sqlite3
 
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
@@ -14,7 +14,7 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        db = get_db
+        db = get_db()
         error = None
 
         if not username:
