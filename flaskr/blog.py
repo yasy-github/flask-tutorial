@@ -91,7 +91,7 @@ def update(id):
 
 @bp.route('/<int:id>/delete', methods=('POST',))
 def delete(id):
-    post = get_post(id)
+    get_post(id)    # validate
     db = get_db()
     db.execute(
         "DELETE FROM post WHERE id = ?", (id,)
